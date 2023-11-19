@@ -1,0 +1,29 @@
+{
+    "name": "candelaobscura",
+    "title": "Candela Obscura",
+    "description": "Unofficial FoundryVTT system for the Candela Obscura roleplaying game by Darrington Press",
+    "version": "1.0.0",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "11",
+        "maximum": "11"
+    },
+    "authors": [{ "name": "Miguel Molina" }],
+    "esmodules": ["candelaobscura.js"],
+    "styles": ["candelaobscura.css"],
+    "scripts": [],
+    "packs": [],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "gridDistance": 5,
+    "gridUnits": "ft",
+    "url": "https://github.com/erizocosmico/foundryvtt-candelaobscura",
+    "manifest": "https://github.com/erizocosmico/foundryvtt-candelaobscura/releases/latest/download/system.json",
+    "download": "https://github.com/erizocosmico/foundryvtt-candelaobscura/releases/latest/download/candelaobscura.zip",
+    "license": "LICENSE"
+}

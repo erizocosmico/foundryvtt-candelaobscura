@@ -1,0 +1,136 @@
+{
+    "Actor": {
+        "types": ["character", "circle"],
+        "character": {
+            "pronouns": "",
+            "style": "",
+            "catalyst": "",
+            "question": "",
+            "role": "",
+            "specialty": "",
+            "illumination_keys": {
+                "first": "",
+                "second": "",
+                "third": ""
+            },
+            "drives": {
+                "nerve": {
+                    "max": 0,
+                    "value": 0,
+                    "resistance": 0
+                },
+                "cunning": {
+                    "max": 0,
+                    "value": 0,
+                    "resistance": 0
+                },
+                "intuition": {
+                    "max": 0,
+                    "value": 0,
+                    "resistance": 0
+                }
+            },
+            "moves": {
+                "move": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "nerve"
+                },
+                "strike": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "nerve"
+                },
+                "control": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "nerve"
+                },
+
+                "sway": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "cunning"
+                },
+                "read": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "cunning"
+                },
+                "hide": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "cunning"
+                },
+
+                "survey": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "intuition"
+                },
+                "focus": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "intuition"
+                },
+                "sense": {
+                    "value": 0,
+                    "gilded": false,
+                    "drive": "intuition"
+                }
+            },
+            "marks": {
+                "body": 0,
+                "brain": 0,
+                "bleed": 0
+            },
+            "notes": ""
+        },
+        "circle": {
+            "circle_name": "",
+            "chapter_house": "",
+            "tone": "",
+            "notes": "",
+            "illumination": 0,
+            "resources": {
+                "stitch": {
+                    "max": 0,
+                    "value": 0
+                },
+                "refresh": {
+                    "max": 0,
+                    "value": 0
+                },
+                "train": {
+                    "max": 0,
+                    "value": 0
+                }
+            }
+        }
+    },
+    "Item": {
+        "types": ["gear", "scar", "ability", "relationship"],
+        "relationship": {
+            "character": "",
+            "relationship": "",
+            "description": ""
+        },
+        "gear": {
+            "description": "",
+            "used": false
+        },
+        "scar": {
+            "type": "",
+            "description": "",
+            "event": "",
+            "move_decreased": "",
+            "move_increased": ""
+        },
+        "ability": {
+            "description": "",
+            "type": "",
+            "role": "",
+            "specialty": ""
+        }
+    }
+}
