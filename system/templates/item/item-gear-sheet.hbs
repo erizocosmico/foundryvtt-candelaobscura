@@ -1,0 +1,22 @@
+<form class='{{cssClass}} item-scar' autocomplete='off'>
+    <header>
+        <img src='{{item.img}}' data-edit='img' title='{{item.name}}' />
+        <h1>
+            <input name='name' type='text' value='{{item.name}}' placeholder='{{loc "name"}}' />
+        </h1>
+    </header>
+
+    <section>
+        <div class='co-field big'>
+            <label for='system.description'>{{loc 'description'}}:</label>
+            {{editor
+                content=item.system.description
+                target='system.description'
+                rollData=rollData
+                button=true
+                owner=owner
+                editable=editable
+            }}
+        </div>
+    </section>
+</form>

@@ -9,6 +9,7 @@ import { preloadHandlebarsTemplates, registerHelpers } from './helpers/templates
 import './styles/candelaobscura.scss';
 import { StandardDie, GildedDie, registerDice3D } from './rolls/dice.js';
 import { CANDELAOBSCURA } from './helpers/config.js';
+import { handleRollMessage } from './rolls/roll.js';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -43,3 +44,4 @@ Hooks.once('init', async function () {
 registerHelpers();
 
 Hooks.once('diceSoNiceReady', registerDice3D);
+Hooks.on('renderChatMessage', handleRollMessage);

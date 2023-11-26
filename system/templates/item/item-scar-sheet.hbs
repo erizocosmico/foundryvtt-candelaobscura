@@ -1,0 +1,61 @@
+<form class='{{cssClass}} item-scar' autocomplete='off'>
+    <header>
+        <img src='{{item.img}}' data-edit='img' title='{{item.name}}' />
+        <h1>
+            <input name='name' type='text' value='{{item.name}}' placeholder='{{loc "name"}}' />
+        </h1>
+    </header>
+
+    <section>
+        <div class='co-fields'>
+            <div class='co-field'>
+                <label for='system.type'>{{loc 'type'}}:</label>
+                <select name='system.type'>
+                    {{#select item.system.type}}
+                        <option value='body'>{{loc 'mark.body'}}</option>
+                        <option value='brain'>{{loc 'mark.brain'}}</option>
+                        <option value='bleed'>{{loc 'mark.bleed'}}</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div class='co-field'>
+                <label for='system.event'>{{loc 'event'}}:</label>
+                <input type='text' name='system.event' value='{{item.system.event}}' />
+            </div>
+            <div class='co-field-group'>
+                <div class='co-field'>
+                    <label for='system.move_decreased'>{{loc 'move_decreased'}}:</label>
+                    <select name='system.move_decreased'>
+                        {{#select item.system.move_decreased}}
+                            {{#each moves as |m|}}
+                                <option value='{{m}}'>{{loc 'move' m 'label'}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+
+                <div class='co-field'>
+                    <label for='system.move_increased'>{{loc 'move_increased'}}:</label>
+                    <select name='system.move_increased'>
+                        {{#select item.system.move_increased}}
+                            {{#each moves as |m|}}
+                                <option value='{{m}}'>{{loc 'move' m 'label'}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+            <div class='co-field big'>
+                <label for='system.description'>{{loc 'description'}}:</label>
+                {{editor
+                    content=item.system.description
+                    target='system.description'
+                    rollData=rollData
+                    button=true
+                    owner=owner
+                    editable=editable
+                }}
+            </div>
+        </div>
+    </section>
+</form>

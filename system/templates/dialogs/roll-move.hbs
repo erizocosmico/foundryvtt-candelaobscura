@@ -1,0 +1,37 @@
+<div>
+    <header>
+        <h1>{{loc 'move' move 'label'}}</h1>
+        {{#if gilded}}<div class='move-gilded'></div>{{/if}}
+    </header>
+
+    <div class='roll-dices'>
+        <div class='roll-dice'>
+            <h4>{{loc 'dice.base'}}</h4>
+            <div class='roll-dice-counter'>
+                <button class='roll-dice-counter-btn' data-delta='-1' data-dice='base'>
+                    <i class='fa fa-minus'></i>
+                </button>
+                <div class='roll-dice-counter-value base' id='roll-base-dice'>{{baseDice}}</div>
+                <button class='roll-dice-counter-btn' data-delta='1' data-dice='base'>
+                    <i class='fa fa-plus'></i>
+                </button>
+            </div>
+        </div>
+
+        <div class='roll-dice'>
+            <h4>{{loc 'dice.gilded'}}</h4>
+            <div class='roll-dice-counter'>
+                <button class='roll-dice-counter-btn' data-delta='-1' data-dice='gilded'>
+                    <i class='fa fa-minus'></i>
+                </button>
+                <div
+                    class='roll-dice-counter-value gilded'
+                    id='roll-gilded-dice'
+                >{{gildedDice}}</div>
+                <button class='roll-dice-counter-btn' data-delta='1' data-dice='gilded'>
+                    <i class='fa fa-plus'></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

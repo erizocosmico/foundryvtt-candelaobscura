@@ -1,1 +1,27 @@
-export const CANDELAOBSCURA = {};
+export const CANDELAOBSCURA = {
+    ROLES: {
+        face: ['journalist', 'magician'],
+        muscle: ['explorer', 'soldier'],
+        scholar: ['doctor', 'professor'],
+        slink: ['criminal', 'detective'],
+        weird: ['medium', 'occultist'],
+    },
+    MOVES: ['move', 'strike', 'control', 'sway', 'read', 'hide', 'survey', 'focus', 'sense'],
+    RELATIONSHIPS: [
+        'bully',
+        'confidant',
+        'champion',
+        'coworker',
+        'enemy',
+        'family',
+        'lover',
+        'mentor',
+        'muse',
+        'old_friend',
+        'rival',
+        'sibling',
+        'soulmate',
+        'stranger',
+        'ward',
+    ],
+};

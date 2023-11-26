@@ -1,1 +1,149 @@
-{}
+{
+    "CANDELA.name": "Name",
+    "CANDELA.specialty": "Specialty",
+    "CANDELA.role": "Role",
+    "CANDELA.pronouns": "Pronouns",
+    "CANDELA.drives": "Drives",
+    "CANDELA.resistance": "Resistance",
+    "CANDELA.max": "Max",
+    "CANDELA.drive": {
+        "nerve": "Nerve",
+        "cunning": "Cunning",
+        "intuition": "Intuition"
+    },
+    "CANDELA.move": {
+        "move": {
+            "label": "Move",
+            "help": "run, dodge, navigate"
+        },
+        "strike": {
+            "label": "Strike",
+            "help": "punch, break, knock down"
+        },
+        "control": {
+            "label": "Control",
+            "help": "drive, shoot, finesse"
+        },
+        "sway": {
+            "label": "Sway",
+            "help": "convince, command, consort"
+        },
+        "read": {
+            "label": "Read",
+            "help": "interpret body language, spot lies, gather motives"
+        },
+        "hide": {
+            "label": "Hide",
+            "help": "sneak, distract, sleight of hand"
+        },
+        "survey": {
+            "label": "Survey",
+            "help": "search, track spot"
+        },
+        "focus": {
+            "label": "Focus",
+            "help": "inspect, analyze, remember"
+        },
+        "sense": {
+            "label": "Sense",
+            "help": "attune, channel, reveal"
+        }
+    },
+    "CANDELA.illumination_keys": "Illumination Keys",
+    "CANDELA.marks": "Marks",
+    "CANDELA.mark": {
+        "body": "Body",
+        "brain": "Brain",
+        "bleed": "Bleed"
+    },
+    "CANDELA.scars": "Scars",
+    "CANDELA.add_scar": "Add scar",
+    "CANDELA.add_ability": "Add ability",
+    "CANDELA.add_gear": "Add gear",
+    "CANDELA.add_relationship": "Add relationship",
+    "CANDELA.edit": "Edit",
+    "CANDELA.delete": "Delete",
+    "CANDELA.relationships": "Relationships",
+    "CANDELA.gear": "Gear",
+    "CANDELA.notes": "Notes",
+    "CANDELA.circle": "Circle",
+    "CANDELA.style": "Style",
+    "CANDELA.catalyst": "Catalyst",
+    "CANDELA.question": "Question",
+    "CANDELA.tabs": {
+        "abilities": "Abilities",
+        "gear": "Gear",
+        "bio": "Biography"
+    },
+    "CANDELA.no_abilities": "The character has no abilities.",
+    "CANDELA.no_gear": "The character has no gear.",
+    "CANDELA.no_relationships": "The character has no relationships.",
+    "CANDELA.edit_mode": "Edit mode",
+    "CANDELA.description": "Description",
+    "CANDELA.type": "Type",
+    "CANDELA.roles": {
+        "face": "Face",
+        "muscle": "Muscle",
+        "scholar": "Scholar",
+        "slink": "Slink",
+        "weird": "Weird"
+    },
+    "CANDELA.specialties": {
+        "journalist": "Journalist",
+        "magician": "Magician",
+        "explorer": "Explorer",
+        "soldier": "Soldier",
+        "doctor": "Doctor",
+        "professor": "Professor",
+        "criminal": "Criminal",
+        "detective": "Detective",
+        "medium": "Medium",
+        "occultist": "Occultist"
+    },
+    "CANDELA.move_increased": "+1 to",
+    "CANDELA.move_decreased": "-1 to",
+    "CANDELA.event": "Event",
+    "CANDELA.answer": "Answer",
+    "CANDELA.relationship": "Relationships",
+    "CANDELA.character_name": "Character name",
+    "CANDELA.relationship_types": {
+        "bully": "Bully",
+        "confidant": "Confidant",
+        "champion": "Champion",
+        "coworker": "Coworker",
+        "enemy": "Enemy",
+        "family": "Family",
+        "lover": "Lover",
+        "mentor": "Mentor",
+        "muse": "Muse",
+        "old_friend": "Old friend",
+        "rival": "Rival",
+        "sibling": "Sibling",
+        "soulmate": "Soulmate",
+        "stranger": "Stranger",
+        "ward": "Ward"
+    },
+    "CANDELA.new.scar": "New scar",
+    "CANDELA.new.ability": "New ability",
+    "CANDELA.new.relationship": "Character name",
+    "CANDELA.new.gear": "New gear",
+    "CANDELA.roll_move": "Roll move",
+    "CANDELA.cancel": "Cancel",
+    "CANDELA.roll": "Roll",
+    "CANDELA.choose_result": {
+        "title": "Choose result",
+        "keep_best": "Keep best",
+        "take_gilded": "Take gilded",
+        "help": "Choose between the best result or the result on the gilded dice. If you choose the gilded dice, you will gain +1 drive."
+    },
+    "CANDELA.dice": {
+        "base": "Standard",
+        "gilded": "Gilded"
+    },
+    "CANDELA.results": {
+        "critical_success": "Critical success!",
+        "full_success": "Full success",
+        "mixed_success": "Mixed success",
+        "fail": "Fail"
+    }
+}

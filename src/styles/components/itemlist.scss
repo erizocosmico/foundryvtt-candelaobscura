@@ -1,0 +1,117 @@
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .item {
+        display: flex;
+        border-bottom: 1px solid $color-gold-light;
+        gap: 0.5rem;
+        padding: 0.3rem 0.5rem;
+
+        &.no-spaced {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &-open {
+            cursor: pointer;
+        }
+
+        &-main {
+            flex: 1;
+
+            &-name {
+                font-weight: bold;
+                &:hover {
+                    color: $color-gold;
+                }
+            }
+
+            &-desc * {
+                display: inline;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        &-type {
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        &-actions {
+            display: none;
+
+            &-editable {
+                display: block;
+            }
+
+            a {
+                font-size: 0.9rem;
+            }
+        }
+
+        &-check {
+            display: block;
+            height: 1rem;
+            width: 1rem;
+            background: white;
+            border: 1px solid transparentize(black, 0.6);
+            margin-top: 0.1rem;
+            cursor: pointer;
+
+            &.active {
+                border-color: black;
+                position: relative;
+
+                &:before {
+                    transform: rotate(45deg);
+                    content: '';
+                    position: absolute;
+                    top: -1px;
+                    bottom: -1px;
+                    width: 1px;
+                    background-color: black;
+                    height: 1rem;
+                    left: 6.5px;
+                }
+
+                &:after {
+                    transform: rotate(-45deg);
+                    content: '';
+                    position: absolute;
+                    top: -1px;
+                    bottom: -1px;
+                    width: 1px;
+                    background-color: black;
+                    height: 1rem;
+                    left: 6.5px;
+                }
+            }
+        }
+    }
+}
+
+.item-add {
+    a {
+        font-size: 0.9rem;
+        color: $color-gold;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        justify-content: flex-end;
+        padding: 0.2rem 0.5rem;
+        border-bottom: 1px solid transparentize($color-gold-light, 0.7);
+    }
+
+    &.empty a {
+        color: black;
+        justify-content: center;
+        border-bottom: none;
+    }
+}

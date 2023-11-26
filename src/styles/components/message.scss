@@ -1,0 +1,114 @@
+.chat-message {
+    font-family: $font-default;
+    background: $color-bg-light;
+    border-radius: 0;
+    border: 1px solid black;
+
+    .message-sender {
+        font-style: italic;
+    }
+}
+
+.candela-message {
+    h3 {
+        font-size: 2rem;
+        font-family: $font-title;
+        text-transform: uppercase;
+        text-align: center;
+        border-bottom-color: $color-gold-light;
+    }
+
+    &-roll {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+
+        &-dice {
+            height: 2.5rem;
+            width: 2.5rem;
+            font-size: 2rem;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            background: $color-standard-dice;
+            border-radius: 2px;
+            color: white;
+            border: 1px solid transparentize(black, 0.7);
+            cursor: pointer;
+
+            &.gilded {
+                background-color: $color-gold;
+            }
+        }
+
+        &-result {
+            font-style: italic;
+            font-weight: bold;
+            font-size: 1.5rem;
+
+            &.critical-success,
+            &.full-success {
+                color: rgb(13, 134, 13);
+            }
+
+            &.mixed-success {
+                color: rgb(166, 103, 14);
+            }
+
+            &.fail {
+                color: rgb(151, 30, 30);
+            }
+        }
+
+        &-drive {
+            color: $color-gold;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        &-summary {
+            display: none;
+            background: lighten($color-gold, 40);
+            border: 1px solid transparentize($color-gold, 0.7);
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            margin-top: 0.5rem;
+
+            &:before {
+                background-color: lighten($color-gold, 40);
+                content: '\00a0';
+                display: block;
+                height: 16px;
+                width: 16px;
+                left: calc(50% - 8px);
+                position: absolute;
+                top: -8px;
+                transform: rotate(47deg) skew(5deg);
+                box-shadow: 0 1px 0 transparentize($color-gold, 0.7) inset,
+                    1px 0 0 transparentize($color-gold, 0.7) inset;
+            }
+
+            &-dice {
+                height: 1.5rem;
+                width: 1.5rem;
+                font-size: 1.1rem;
+                align-items: center;
+                justify-content: center;
+                display: inline-flex;
+                background: $color-standard-dice;
+                border-radius: 2px;
+                color: white;
+                border: 1px solid transparentize(black, 0.7);
+
+                &.gilded {
+                    background-color: $color-gold;
+                }
+            }
+        }
+    }
+}

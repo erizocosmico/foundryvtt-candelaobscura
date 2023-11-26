@@ -2,12 +2,13 @@
     "Actor": {
         "types": ["character", "circle"],
         "character": {
+            "mode": "",
             "pronouns": "",
             "style": "",
             "catalyst": "",
             "question": "",
-            "role": "",
-            "specialty": "",
+            "role": "face",
+            "specialty": "journalist",
             "illumination_keys": {
                 "first": "",
                 "second": "",
@@ -111,16 +112,16 @@
     "Item": {
         "types": ["gear", "scar", "ability", "relationship"],
         "relationship": {
-            "character": "",
-            "relationship": "",
-            "description": ""
+            "relationship": "bully",
+            "question": "",
+            "answer": ""
         },
         "gear": {
             "description": "",
             "used": false
         },
         "scar": {
-            "type": "",
+            "type": "body",
             "description": "",
             "event": "",
             "move_decreased": "",
@@ -128,7 +129,7 @@
         },
         "ability": {
             "description": "",
-            "type": "",
+            "type": "role",
             "role": "",
             "specialty": ""
         }

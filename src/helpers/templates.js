@@ -1,10 +1,16 @@
+export const TEMPLATES = {
+    ROLL_MOVE: 'systems/candelaobscura/templates/dialogs/roll-move.hbs',
+    CHOOSE_RESULT: 'systems/candelaobscura/templates/dialogs/choose-result.hbs',
+    ROLL_MESSAGE: 'systems/candelaobscura/templates/chat/roll.hbs',
+};
+
 /**
  * Define a set of template paths to pre-load
  * Pre-loaded templates are compiled and cached for fast access when rendering
  * @return {Promise}
  */
 export const preloadHandlebarsTemplates = async function () {
-    return loadTemplates([]);
+    return loadTemplates([TEMPLATES.ROLL_MOVE, TEMPLATES.CHOOSE_RESULT]);
 };
 
 export function registerHelpers() {
@@ -28,6 +34,8 @@ export function registerHelpers() {
     Handlebars.registerHelper('capitalize', function (value) {
         return typeof value === 'string' ? value.capitalize() : value;
     });
+
+    Handlebars.registerHelper('value_at', (obj, k, defaultValue) => obj?.[k] || defaultValue);
 
     Handlebars.registerHelper({
         eq: (v1, v2) => v1 === v2,

@@ -1,0 +1,86 @@
+.co-fields {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    & > * + * {
+        margin-top: 1rem;
+    }
+}
+
+.co-field {
+    display: flex;
+    flex: 1;
+    gap: 0.5rem;
+
+    &-group {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &.big .editor {
+        height: 150px;
+    }
+
+    &.medium .editor {
+        height: 75px;
+    }
+
+    .editor {
+        border: 1px solid transparentize($color-gold-light, 0.5);
+
+        &-content {
+            padding: 0 0.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    &.block,
+    &.big,
+    &.medium {
+        display: block;
+
+        input + input {
+            margin-top: 0.5rem;
+        }
+    }
+
+    label {
+        font-family: $font-title;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+    }
+
+    input {
+        font-size: 1rem;
+        display: block;
+        background-color: transparent;
+        border: 1px solid black;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        border-radius: 0;
+
+        &:focus {
+            border-bottom-color: $color-gold;
+            box-shadow: none;
+        }
+    }
+
+    select {
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid black;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        border-radius: 0;
+
+        &:focus {
+            border-bottom-color: $color-gold;
+            box-shadow: none;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<div class='candela-message'>
+    <h3>{{loc 'move' move 'label'}}</h3>
+
+    <div class='candela-message-roll'>
+        <div class='candela-message-roll-dice {{ifThen gainDrive "gilded" ""}}'>{{result}}</div>
+
+        <div class='candela-message-roll-summary'>
+            {{#each baseResults as |r|}}
+                <div class='candela-message-roll-summary-dice'>{{r}}</div>
+            {{/each}}
+            {{#each gildedResults as |r|}}
+                <div class='candela-message-roll-summary-dice gilded'>{{r}}</div>
+            {{/each}}
+        </div>
+
+        {{#if criticalSuccess}}
+            <div class='candela-message-roll-result critical-success'>{{loc
+                    'results.critical_success'
+                }}</div>
+        {{else if (eq result 6)}}
+            <div class='candela-message-roll-result full-success'>{{loc
+                    'results.full_success'
+                }}</div>
+        {{else if (gte result 4)}}
+            <div class='candela-message-roll-result mixed-success'>{{loc
+                    'results.mixed_success'
+                }}</div>
+        {{else}}
+            <div class='candela-message-roll-result fail'>{{loc 'results.fail'}}</div>
+        {{/if}}
+
+        {{#if gainDrive}}
+            <div class='candela-message-roll-drive'>+1 {{loc 'drive' moveDrive}}</div>
+        {{/if}}
+    </div>
+</div>

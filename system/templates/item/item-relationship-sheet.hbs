@@ -1,0 +1,52 @@
+<form class='{{cssClass}} item-scar' autocomplete='off'>
+    <header>
+        <img src='{{item.img}}' data-edit='img' title='{{item.name}}' />
+        <h1>
+            <input
+                name='name'
+                type='text'
+                value='{{item.name}}'
+                placeholder='{{loc "character_name"}}'
+            />
+        </h1>
+    </header>
+
+    <section>
+        <div class='co-fields'>
+            <div class='co-field'>
+                <label for='system.relationship'>{{loc 'relationship'}}:</label>
+                <select name='system.relationship'>
+                    {{#select item.system.relationship}}
+                        {{#each relationships as |r|}}
+                            <option value='{{r}}'>{{loc 'relationship_types' r}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+
+            <div class='co-field medium'>
+                <label for='system.question'>{{loc 'question'}}:</label>
+                {{editor
+                    content=item.system.question
+                    target='system.question'
+                    rollData=rollData
+                    button=true
+                    owner=owner
+                    editable=editable
+                }}
+            </div>
+
+            <div class='co-field big'>
+                <label for='system.answer'>{{loc 'answer'}}:</label>
+                {{editor
+                    content=item.system.answer
+                    target='system.answer'
+                    rollData=rollData
+                    button=true
+                    owner=owner
+                    editable=editable
+                }}
+            </div>
+        </div>
+    </section>
+</form>

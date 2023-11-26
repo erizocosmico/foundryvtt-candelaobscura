@@ -1,3 +1,5 @@
+import { CANDELAOBSCURA } from '../helpers/config';
+
 export class CandelaItemSheet extends ItemSheet {
     /** @override */
     static get defaultOptions() {
@@ -22,6 +24,15 @@ export class CandelaItemSheet extends ItemSheet {
         let actor = this.object?.parent ?? null;
         if (actor) {
             context.rollData = actor.getRollData();
+        }
+
+        if (this.item.data.type === 'ability') {
+            context.roles = Object.keys(CANDELAOBSCURA.ROLES);
+            context.specialties = Object.values(CANDELAOBSCURA.ROLES).flat();
+        } else if (this.item.data.type === 'scar') {
+            context.moves = CANDELAOBSCURA.MOVES;
+        } else if (this.item.data.type === 'relationship') {
+            context.relationships = CANDELAOBSCURA.RELATIONSHIPS;
         }
 
         return context;

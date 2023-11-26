@@ -1,0 +1,36 @@
+&.sheet.item {
+    font-family: $font-default;
+
+    header {
+        display: flex;
+        gap: 0.5rem;
+        padding-bottom: 1rem;
+
+        img {
+            height: 45px;
+            width: 45px;
+            border: 2px solid $color-gold;
+        }
+
+        h1 {
+            flex: 1;
+            border: none;
+
+            input {
+                display: block;
+                height: 2.6rem;
+                background-color: transparent;
+                border: 1px solid black;
+                border-left: 0;
+                border-right: 0;
+                border-top: 0;
+                border-radius: 0;
+
+                &:focus {
+                    border-bottom-color: $color-gold;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
