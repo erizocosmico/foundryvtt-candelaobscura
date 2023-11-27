@@ -2,7 +2,7 @@
 
 Unofficial Foundry VTT system for Darrington Press' Candela Oscura roleplaying game.
 
-### System development
+## System development
 
 **Note**: only Foundry 11 or later is supported.
 
@@ -18,7 +18,7 @@ JavaScript and CSS is refreshed by Vite automatically, any changes inside the `s
 cp -R system/* <PATH TO YOUR FOUNDRY FOLDER>/Data/systems/candelaobscura/
 ```
 
-### Roadmap
+## Roadmap
 
 **Basics**
 
@@ -31,9 +31,15 @@ cp -R system/* <PATH TO YOUR FOUNDRY FOLDER>/Data/systems/candelaobscura/
 
 -   [ ] Automatically spending drives when rolling
 
-### Credits
+## Credits
 
-This work is based on the [Candela Obscura](https://darringtonpress.com/candela/) Roleplaying Game created by [Darrington Press](https://darringtonpress.com/).
+### Candela Obscura
+
+This product was created using the Darrington Press Community Gaming License. The Illuminated Worlds Standard Resource Document is owned and copyrighted by Darrington Press, LLC. All rights reserved. This product is based on the Adaptive Content created and owned by Darrington Press: Candela Obscura, Darrington Press, LLC, 2023, available at [https://darringtonpress.com/](https://darringtonpress.com/).
+
+### Icons
+
+Icons made by [Lorc](https://lorcblog.blogspot.com) and [Delapouite](https://delapouite.com). Available on [https://game-icons.net](https://game-icons.net).
 
 ### License
 
