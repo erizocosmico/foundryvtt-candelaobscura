@@ -2,8 +2,7 @@
     font-family: $font-default;
 
     .window-content {
-        background-color: black;
-        color: white;
+        color: $color-gold;
         padding: 0;
     }
 
@@ -59,6 +58,7 @@
                 height: 3.5rem;
                 width: 3.5rem;
                 background: $color-standard-dice;
+                color: white;
                 flex-shrink: 0;
                 display: flex;
                 align-items: center;
@@ -73,7 +73,7 @@
             &-btn {
                 color: $color-gold-light;
                 border: 1px solid $color-gold;
-                background-color: black;
+                background-color: transparent;
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
@@ -100,9 +100,9 @@
         gap: 0;
 
         button {
-            background-color: black;
+            background-color: transparent;
             border: none;
-            color: white;
+            color: $color-gold;
             font-family: $font-default;
             font-size: 1.2rem;
             border-radius: 0;
@@ -110,7 +110,8 @@
             margin: 0;
 
             &:hover {
-                background-color: transparentize($color-gold, 0.6);
+                background-color: $color-gold;
+                color: white;
             }
         }
 

@@ -65,21 +65,15 @@
                                     <span class='label'>{{loc 'drives'}}</span>
                                     {{#each (range 1 9) as |n|}}
                                         <span
-                                            class="box {{ifThen (gte d.value n) 'active' ''}}"
+                                            class="box {{ifThen (gte d.value n) 'active' ''}} {{ifThen (lt d.max n) 'disabled' ''}}"
                                         ></span>
-                                    {{/each}}
-                                </div>
-                                <div class='point-track small'>
-                                    <span class='label'>{{loc 'max'}}</span>
-                                    {{#each (range 1 9) as |n|}}
-                                        <span  class="box {{ifThen (gte d.max n) 'active' ''}}"></span>
                                     {{/each}}
                                 </div>
                                 <div class='point-track diamonds small editable' data-type="resistance" data-drive="{{d.name}}" data-direction="reverse">
                                     <span class='label'>{{loc 'resistance'}}</span>
                                     <div class='diamonds-wrap'>
                                         {{#each (range 1 3) as |n|}}
-                                            <span class="box {{ifThen (gte d.resistance n) 'active' ''}}"></span>
+                                            <span class="box {{ifThen (gte d.resistance n) 'active' ''}} {{ifThen (lt (div d.max 3) n) 'disabled' ''}}"></span>
                                         {{/each}}
                                     </div>
                                 </div>
@@ -168,7 +162,12 @@
             </nav>
 
             <div class='tab light-block last' data-group='primary' data-tab='abilities'>
-                {{#if (or (gt abilities.role.length 0) (gt abilities.specialty.length 0))}}
+                {{#if abilities.empty}}
+                    <div class='no-items'>
+                        {{loc 'no_abilities'}}
+                        <a class='item-control item-create' title='{{loc "add_ability"}}' data-type='ability'><i class='fas fa-plus'></i><span>{{loc 'add_ability'}}</span></a>
+                    </div>
+                {{else}}
                     <div class='item-add'>
                         <a
                             class='item-control item-create'
@@ -178,11 +177,12 @@
                             <span>{{loc 'add_ability'}}</span>
                         </a>
                     </div>
-                    {{#if (gt abilities.role.length 0)}}
-                        <h4 class="spaced">{{loc 'role'}}: {{#if system.role}}{{loc 'roles' system.role}}{{/if}}</h4>
+
+                    {{#each abilities.role as |abs|}}
+                        <h4 class="spaced">{{loc 'role'}}: {{loc 'roles' @key}}</h4>
 
                         <ul class='item-list'>
-                            {{#each abilities.role as |a|}}
+                            {{#each abs as |a|}}
                                 <li class='ability item' data-item-id="{{a._id}}">
                                     <div class='item-main'><span class="item-main-name item-open">{{a.name}}:</span>
                                         <span class="item-main-desc">{{{a.system.description}}}</span></div>
@@ -192,13 +192,13 @@
                                 </li>
                             {{/each}}
                         </ul>
-                    {{/if}}
+                    {{/each}}
 
-                    {{#if (gt abilities.specialty.length 0)}}
-                        <h4 class="spaced">{{loc 'specialty'}}: {{#if system.specialty}}{{loc 'specialties' system.specialty}}{{/if}}</h4>
+                    {{#each abilities.specialty as |abs|}}
+                        <h4 class="spaced">{{loc 'specialty'}}: {{loc 'specialties' @key}}</h4>
 
                         <ul class='item-list'>
-                            {{#each abilities.role as |a|}}
+                            {{#each abs as |a|}}
                                 <li class='ability item' data-item-id="{{a._id}}">
                                     <div class='item-main'><span class="item-main-name item-open">{{a.name}}:</span>
                                         <span class="item-main-desc">{{{a.system.description}}}</span></div>
@@ -208,12 +208,7 @@
                                 </li>
                             {{/each}}
                         </ul>
-                    {{/if}}
-                {{else}}
-                    <div class='no-items'>
-                        {{loc 'no_abilities'}}
-                        <a class='item-control item-create' title='{{loc "add_ability"}}' data-type='ability'><i class='fas fa-plus'></i><span>{{loc 'add_ability'}}</span></a>
-                    </div>
+                    {{/each}}
                 {{/if}}
             </div>
 
@@ -267,9 +262,11 @@
 
                 <div class="co-field block">
                     <label>{{loc "illumination_keys"}}:</label>
-                    <input type="text" name="system.illumination_keys.first" value="{{system.illumination_keys.first}}" />
-                    <input type="text" name="system.illumination_keys.second" value="{{system.illumination_keys.second}}" />
-                    <input type="text" name="system.illumination_keys.third" value="{{system.illumination_keys.third}}" />
+                    <ul>
+                        <li>{{loc 'specialties.illumination_keys' system.specialty 'first'}}</li>
+                        <li>{{loc 'specialties.illumination_keys' system.specialty 'second'}}</li>
+                        <li>{{loc 'specialties.illumination_keys' system.specialty 'third'}}</li>
+                    </ul>
                 </div>
 
                 <div class="relationships">

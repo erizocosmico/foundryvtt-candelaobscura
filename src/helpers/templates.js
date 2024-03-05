@@ -51,5 +51,6 @@ export function registerHelpers() {
             return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
         },
         isSelected: (cond) => (cond ? 'selected' : ''),
+        div: (a, b) => a / b,
     });
 }

@@ -1,8 +1,11 @@
+@use 'sass:math';
+
 @import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Yrsa:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 
 @import 'utils/typography';
 @import 'utils/colors';
 @import 'utils/variables';
+@import 'utils/mixins';
 
 @import 'global/window.scss';
 @import 'global/grid.scss';

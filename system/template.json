@@ -9,11 +9,6 @@
             "question": "",
             "role": "face",
             "specialty": "journalist",
-            "illumination_keys": {
-                "first": "",
-                "second": "",
-                "third": ""
-            },
             "drives": {
                 "nerve": {
                     "max": 0,
@@ -88,9 +83,7 @@
             "notes": ""
         },
         "circle": {
-            "circle_name": "",
             "chapter_house": "",
-            "tone": "",
             "notes": "",
             "illumination": 0,
             "resources": {

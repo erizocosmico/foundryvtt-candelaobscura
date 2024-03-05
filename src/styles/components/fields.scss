@@ -22,6 +22,10 @@
         height: 150px;
     }
 
+    &.bigger .editor {
+        height: 300px;
+    }
+
     &.medium .editor {
         height: 75px;
     }

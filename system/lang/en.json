@@ -66,14 +66,14 @@
     "CANDELA.relationships": "Relationships",
     "CANDELA.gear": "Gear",
     "CANDELA.notes": "Notes",
-    "CANDELA.circle": "Circle",
     "CANDELA.style": "Style",
     "CANDELA.catalyst": "Catalyst",
     "CANDELA.question": "Question",
     "CANDELA.tabs": {
         "abilities": "Abilities",
         "gear": "Gear",
-        "bio": "Biography"
+        "bio": "Biography",
+        "notes": "Notes"
     },
     "CANDELA.no_abilities": "The character has no abilities.",
     "CANDELA.no_gear": "The character has no gear.",
@@ -98,7 +98,59 @@
         "criminal": "Criminal",
         "detective": "Detective",
         "medium": "Medium",
-        "occultist": "Occultist"
+        "occultist": "Occultist",
+        "illumination_keys": {
+            "journalist": {
+                "first": "Gather statements",
+                "second": "Hunt Down a Lead",
+                "third": "Speak Truth to Power"
+            },
+            "magician": {
+                "first": "Perform a Trick",
+                "second": "Spot a Ruse",
+                "third": "Seek Out Real Magick"
+            },
+            "exporer": {
+                "first": "Study an Artifact",
+                "second": "Discuss History",
+                "third": "Run into Danger"
+            },
+            "soldier": {
+                "first": "Use Violence of Action",
+                "second": "Protect Someone",
+                "third": "Act Tactically"
+            },
+            "doctor": {
+                "first": "Avoid a Fight",
+                "second": "Aid an Ally",
+                "third": "Comfort Someone"
+            },
+            "professor": {
+                "first": "Mentor an Ally",
+                "second": "Reference Research",
+                "third": "Make a Plan"
+            },
+            "criminal": {
+                "first": "Do Something Illegal",
+                "second": "Make a Deal",
+                "third": "Stand Up to Authority"
+            },
+            "detective": {
+                "first": "Probe a Witness",
+                "second": "Track a Target",
+                "third": "Reveal a Clue"
+            },
+            "medium": {
+                "first": "Connect with Someone",
+                "second": "Sense Phenomena",
+                "third": "Make a Scene"
+            },
+            "occultist": {
+                "first": "Consult Arcane Texts",
+                "second": "Collect Oddities",
+                "third": "Act Bizarre"
+            }
+        }
     },
     "CANDELA.move_increased": "+1 to",
     "CANDELA.move_decreased": "-1 to",
@@ -145,5 +197,20 @@
         "full_success": "Full success",
         "mixed_success": "Mixed success",
         "fail": "Fail"
+    },
+    "CANDELA.circle": {
+        "name": "Circle name",
+        "label": "Circle",
+        "chapter_house": "Chapter House",
+        "resources": {
+            "stitch": "Stitch",
+            "refresh": "Refresh",
+            "train": "Train",
+            "label": "Resources"
+        },
+        "illumination": "Illumination",
+        "available": "Available",
+        "no_abilities": "The circle has no abilities.",
+        "no_gear": "The circle has no gear."
     }
 }

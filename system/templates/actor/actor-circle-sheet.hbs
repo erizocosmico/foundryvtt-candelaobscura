@@ -1,0 +1,159 @@
+<form class='{{cssClass}} {{actor.type}}' autocomplete='off'>
+    <header>
+        <img
+            class='sheet-picture'
+            src='{{actor.img}}'
+            data-edit='img'
+            title='{{actor.name}}'
+            height='100'
+            width='100'
+        />
+
+        <div class='co-fields'>
+            <div class='co-field-group'>
+                <div class='co-field'>
+                    <label for='name'>{{loc 'circle.name'}}:</label>
+                    <input id='name' name='name' type='text' value='{{actor.name}}' />
+                </div>
+            </div>
+
+            <div class='co-field-group'>
+                <div class='co-field'>
+                    <label for='system.role'>{{loc 'circle.chapter_house'}}:</label>
+                    <input id='chapter_house' name='system.chapter_house' type='text' value='{{system.chapter_house}}' />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class='sheet-body'>
+        <aside class='stats {{ifThen canEdit "editable" ""}}'>
+            {{#each resources as |r|}}
+                <div class='resource'>
+					<header>
+						<h3>{{loc 'circle.resources' r.name}}</h3>
+						{{#if ../canEdit}}
+						<div class="resource-edit">
+							<button class="resource-edit-minus" data-resource="{{r.name}}"><i class="fa fa-minus"></i></button>
+							<span>{{r.max}}</span>
+							<button class="resource-edit-plus" data-resource="{{r.name}}"><i class="fa fa-plus"></i></button>
+						</div>
+						{{else}}
+							<div class='point-tracks'>
+								<div class='point-track medium editable' data-type="resource" data-resource="{{r.name}}" data-direction="reverse">
+									<span class='label'>{{loc 'circle.available'}}</span>
+									{{#each (range 1 9) as |n|}}
+										<span
+											class="box {{ifThen (gte r.value n) 'active' ''}} {{ifThen (lt r.max n) 'disabled' ''}}"
+										></span>
+									{{/each}}
+								</div>
+							</div>
+						{{/if}}
+					</header>
+                </div>
+            {{/each}}
+
+			<div class="illumination">
+				<header>
+					<h3>{{loc "circle.illumination"}}</h3>
+				</header>
+				<div class="illumination-block">
+					<div class="container">
+						<div class="circle-container">
+							<img src="systems/candelaobscura/assets/illumination/candle.svg" class="illumination-center-candle centered" />
+							<div class="circular">
+							{{#if (eq system.illumination.value system.illumination.max) }}
+							<img src="systems/candelaobscura/assets/illumination/flame.svg" class="illumination-flame centered illumination-reset" />
+							{{ else }}
+							<img src="systems/candelaobscura/assets/illumination/flame.svg" class="illumination-flame-gray centered illumination-reset" />
+							{{/if}}
+								{{#each (range 1 24) as | v | }}
+								{{#if (lte v ../system.illumination) }}
+								<button class="illumination illumination-point illumination-point-selected" data-value="{{ v }}"></button>
+								{{ else }}
+								<button class="illumination illumination-point" data-value="{{ v }}"></button>
+								{{/if}}
+								{{/each}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </aside>
+
+        <section class='sheet-content'>
+            <nav class='sheet-tabs tabs' data-group='primary'>
+                <a class='item' data-tab='abilities'>{{loc 'tabs.abilities'}}</a>
+                <a class='item' data-tab='gear'>{{loc 'tabs.gear'}}</a>
+                <a class='item' data-tab='notes'>{{loc 'tabs.notes'}}</a>
+            </nav>
+
+            <div class='tab light-block last' data-group='primary' data-tab='abilities'>
+                {{#if abilities.empty}}
+                    <div class='no-items'>
+                        {{loc 'circle.no_abilities'}}
+                    </div>
+                {{else}}
+					<ul class='item-list'>
+						{{#each abilities.circle as |a|}}
+							<li class='ability item' data-item-id="{{a._id}}">
+								<div class='item-main'><span class="item-main-name item-open">{{a.name}}:</span>
+									<span class="item-main-desc">{{{a.system.description}}}</span></div>
+								<div class='item-actions {{ifThen ../canEdit "item-actions-editable" ""}}'>
+									<a class='item-control item-edit' title='{{loc "edit"}}'><i class='fas fa-edit'></i></a>
+									<a class='item-control item-delete' title='{{loc "delete"}}'><i class='fas fa-trash'></i></a></div>
+							</li>
+						{{/each}}
+					</ul>
+                {{/if}}
+            </div>
+
+            <div class='tab light-block last' data-group='primary' data-tab='gear'>
+                {{#if (gt gear.length 0)}}
+                    <div class='item-add'>
+                        <a
+                            class='item-control item-create'
+                            title='{{loc "add_gear"}}'
+                            data-type='gear'
+                        ><i class='fas fa-plus'></i>
+                            <span>{{loc 'add_gear'}}</span>
+                        </a>
+                    </div>
+                    <ul class='item-list'>
+                        {{#each gear as |i|}}
+                            <li class='item' data-item-id="{{i._id}}">
+                                <div class='item-check gear-used {{ifThen i.system.used "active" ""}}'></div>
+                                <div class='item-main'><span class="item-main-name item-open">{{i.name}}:</span>
+                                        <span class="item-main-desc">{{{i.system.description}}}</span></div>
+                                <div class='item-actions {{ifThen ../canEdit "item-actions-editable" ""}}'>
+                                    <a class='item-control item-edit' title='{{loc "edit"}}'><i class='fas fa-edit' ></i></a>
+                                    <a class='item-control item-delete' title='{{loc "delete"}}'><i class='fas fa-trash' ></i></a>
+                                </div>
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <div class='no-items'>
+                        {{loc 'circle.no_gear'}}
+                        <a class='item-control item-create' title='{{loc "add_gear"}}' data-type='gear'><i class='fas fa-plus'></i><span>{{loc 'add_gear'}}</span></a>
+                        </div>
+                {{/if}}
+            </div>
+
+            <div class='tab sheet-bio light-block last' data-group='primary' data-tab='notes'>
+                <div class="co-field block bigger">
+                    <label for="system.notes">{{loc "notes"}}:</label>
+                    {{editor
+                        content=system.notes
+                        target='system.notes'
+                        rollData=rollData
+                        button=true
+                        owner=owner
+                        editable=editable
+                    }}
+                </div>
+            </div>
+        </section>
+    </div>
+</form>

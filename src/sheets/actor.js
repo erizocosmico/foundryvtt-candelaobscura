@@ -80,6 +80,8 @@ export class CandelaActorSheet extends ActorSheet {
         if (this.actor.type === 'character') {
             this._prepareCharacterData(context);
             context.canRoll = this.actor.system.mode !== 'edit';
+        } else if (this.actor.type === 'circle') {
+            this._prepareCircleData(context);
         }
 
         this._prepareItems(context);
@@ -121,6 +123,16 @@ export class CandelaActorSheet extends ActorSheet {
         context.specialties = CANDELAOBSCURA.ROLES;
     }
 
+    _prepareCircleData(context) {
+        context.resources = [];
+        for (const key of Object.keys(context.system.resources)) {
+            context.resources.push({
+                name: key,
+                ...context.system.resources[key],
+            });
+        }
+    }
+
     /**
      * Organize and classify Items for Character sheets.
      *
@@ -132,7 +144,7 @@ export class CandelaActorSheet extends ActorSheet {
         context.gear = [];
         context.scars = [];
         context.relationships = [];
-        context.abilities = {};
+        context.abilities = { empty: true, specialty: {}, circle: [], role: {} };
 
         for (let i of context.items) {
             i.img = i.img || DEFAULT_TOKEN;
@@ -147,10 +159,25 @@ export class CandelaActorSheet extends ActorSheet {
                     context.relationships.push(i);
                     break;
                 case 'ability':
-                    if (!context.abilities[i.system.type]) {
-                        context.abilities[i.system.type] = [];
+                    context.abilities.empty = false;
+
+                    switch (i.system.type) {
+                        case 'specialty':
+                            if (!context.abilities[i.system.type][i.system.specialty]) {
+                                context.abilities[i.system.type][i.system.specialty] = [];
+                            }
+                            context.abilities[i.system.type][i.system.specialty].push(i);
+                            break;
+                        case 'role':
+                            if (!context.abilities[i.system.type][i.system.role]) {
+                                context.abilities[i.system.type][i.system.role] = [];
+                            }
+                            context.abilities[i.system.type][i.system.role].push(i);
+                            break;
+                        case 'circle':
+                            context.abilities[i.system.type].push(i);
+                            break;
                     }
-                    context.abilities[i.system.type].push(i);
                     break;
             }
         }
@@ -164,6 +191,8 @@ export class CandelaActorSheet extends ActorSheet {
 
         if (this.actor.type === 'character') {
             this._activateCharacterListeners(html);
+        } else if (this.actor.type === 'circle') {
+            this._activateCircleListeners(html);
         }
 
         html.find('.item-open').click((ev) => {
@@ -186,6 +215,17 @@ export class CandelaActorSheet extends ActorSheet {
             const item = this.actor.items.get(li.data('itemId'));
             item.sheet.render(true);
         });
+
+        html.find('.point-track').click(async (e) => await this._handlePointTrack(e, -1));
+        html.find('.point-track').on(
+            'contextmenu',
+            async (e) => await this._handlePointTrack(e, 1),
+        );
+        html.find('.gear-used').click((ev) => {
+            const li = $(ev.currentTarget).parents('.item');
+            const item = this.actor.items.get(li.data('itemId'));
+            item.update({ 'system.used': !item.system.used });
+        });
     }
 
     _activateCharacterListeners(html) {
@@ -203,18 +243,34 @@ export class CandelaActorSheet extends ActorSheet {
         } else {
             html.find('.roll-move').click(async (e) => await this._rollMove(e));
         }
+    }
 
-        html.find('.point-track').click(async (e) => await this._handlePointTrack(e, 1));
-        html.find('.point-track').on(
-            'contextmenu',
-            async (e) => await this._handlePointTrack(e, -1),
-        );
-        html.find('.gear-used').click((ev) => {
-            const li = $(ev.currentTarget).parents('.item');
-            const item = this.actor.items.get(li.data('itemId'));
-            console.log(item, item.system.used);
-            item.update({ 'system.used': !item.system.used });
-        });
+    _activateCircleListeners(html) {
+        if (!this.isEditable) return;
+
+        if (this.actor.system.mode === 'edit') {
+            html.find('.resource-edit-minus').click(
+                async (e) => await this._updateMaxResource(e, -1),
+            );
+            html.find('.resource-edit-plus').click(
+                async (e) => await this._updateMaxResource(e, +1),
+            );
+        }
+
+        html.find('.illumination-point').click(async (e) => await this._updateIllumination(e));
+        html.find('.illumination-reset').click(async () => await this._resetIllumination());
+    }
+
+    _updateIllumination(e) {
+        const value = e.currentTarget.dataset.value;
+
+        if (value >= 1 && value <= 26) {
+            return this.actor.update({ 'system.illumination': value });
+        }
+    }
+
+    _resetIllumination() {
+        return this.actor.update({ 'system.illumination': 0 });
     }
 
     async _rollMove(e) {
@@ -243,6 +299,8 @@ export class CandelaActorSheet extends ActorSheet {
                 return await this._updateDrive(e, delta * direction);
             case 'mark':
                 return await this._updateMark(e, delta * direction);
+            case 'resource':
+                return await this._updateResource(e, delta * direction);
         }
     }
 
@@ -268,7 +326,6 @@ export class CandelaActorSheet extends ActorSheet {
         const mark = e.currentTarget.dataset.mark;
 
         const newValue = (this.actor.system.marks[mark] || 0) + delta;
-        console.log(mark, newValue);
         if (newValue < 0 || newValue > 3) return;
 
         return this.actor.update({
@@ -289,6 +346,19 @@ export class CandelaActorSheet extends ActorSheet {
         });
     }
 
+    async _updateMaxResource(e, delta) {
+        const resource = e.currentTarget.dataset.resource;
+
+        const newMax = (this.actor.system.resources[resource]?.max || 0) + delta;
+        if (newMax < 0 || newMax > 9) return;
+        const value = this.actor.system.resources[resource]?.value;
+
+        return this.actor.update({
+            [`system.resources.${resource}.max`]: newMax,
+            [`system.resources.${resource}.value`]: value > newMax ? newMax : value,
+        });
+    }
+
     async _updateDrive(e, delta) {
         const drive = e.currentTarget.dataset.drive;
 
@@ -299,6 +369,19 @@ export class CandelaActorSheet extends ActorSheet {
 
         return this.actor.update({
             [`system.drives.${drive}.value`]: newValue,
+        });
+    }
+
+    async _updateResource(e, delta) {
+        const resource = e.currentTarget.dataset.resource;
+
+        const max = this.actor.system.resources[resource]?.max || 0;
+        const value = this.actor.system.resources[resource]?.value || 0;
+        const newValue = value + delta;
+        if (newValue < 0 || newValue > max) return;
+
+        return this.actor.update({
+            [`system.resources.${resource}.value`]: newValue,
         });
     }
 

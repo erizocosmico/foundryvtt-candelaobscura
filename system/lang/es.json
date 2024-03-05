@@ -1,0 +1,216 @@
+{
+    "CANDELA.name": "Nombre",
+    "CANDELA.specialty": "Especialidad",
+    "CANDELA.role": "Rol",
+    "CANDELA.pronouns": "Pronombres",
+    "CANDELA.drives": "Impulsos",
+    "CANDELA.resistance": "Resistencias",
+    "CANDELA.max": "Máx",
+    "CANDELA.drive": {
+        "nerve": "Agallas",
+        "cunning": "Ingenio",
+        "intuition": "Intuición"
+    },
+    "CANDELA.move": {
+        "move": {
+            "label": "Moverse",
+            "help": "correr, esquivar, sortear"
+        },
+        "strike": {
+            "label": "Golpear",
+            "help": "golpear, romper, derribar"
+        },
+        "control": {
+            "label": "Controlar",
+            "help": "conducir, disparar, sutileza"
+        },
+        "sway": {
+            "label": "Influir",
+            "help": "convencer, mandar, confraternizar"
+        },
+        "read": {
+            "label": "Entender",
+            "help": "detectar mentiras, leer motivaciones"
+        },
+        "hide": {
+            "label": "Ocultarse",
+            "help": "sigilo, distraer, juego de manos"
+        },
+        "survey": {
+            "label": "Examinar",
+            "help": "buscar, rastrear, descubrir"
+        },
+        "focus": {
+            "label": "Concentrarse",
+            "help": "inspeccionar, analizar, recordar"
+        },
+        "sense": {
+            "label": "Sentir",
+            "help": "sintonizarse, canalizar, revelar"
+        }
+    },
+    "CANDELA.illumination_keys": "Claves de Iluminación",
+    "CANDELA.marks": "Marcas",
+    "CANDELA.mark": {
+        "body": "Cuerpo",
+        "brain": "Mente",
+        "bleed": "Bleed"
+    },
+    "CANDELA.scars": "Cicatrices",
+    "CANDELA.add_scar": "Añadir cicatriz",
+    "CANDELA.add_ability": "Añadir habilidad",
+    "CANDELA.add_gear": "Añadir equipo",
+    "CANDELA.add_relationship": "Añadir relación",
+    "CANDELA.edit": "Editar",
+    "CANDELA.delete": "Borrar",
+    "CANDELA.relationships": "Relaciones",
+    "CANDELA.gear": "Equipo",
+    "CANDELA.notes": "Notas",
+    "CANDELA.style": "Estilo",
+    "CANDELA.catalyst": "Catalizador",
+    "CANDELA.question": "Pregunta",
+    "CANDELA.tabs": {
+        "abilities": "Habilidades",
+        "gear": "Equipo",
+        "bio": "Biografía",
+        "notes": "Notas"
+    },
+    "CANDELA.no_abilities": "El personaje no tiene habilidades.",
+    "CANDELA.no_gear": "El personaje no tiene equipo.",
+    "CANDELA.no_relationships": "El personaje no tiene relaciones.",
+    "CANDELA.edit_mode": "Modo edición",
+    "CANDELA.description": "Descripción",
+    "CANDELA.type": "Tipo",
+    "CANDELA.roles": {
+        "face": "Rostro",
+        "muscle": "Músculo",
+        "scholar": "Erudito",
+        "slink": "Sigilo",
+        "weird": "Extraño"
+    },
+    "CANDELA.specialties": {
+        "journalist": "Periodista",
+        "magician": "Mago",
+        "explorer": "Explorador",
+        "soldier": "Soldado",
+        "doctor": "Doctor",
+        "professor": "Profesor",
+        "criminal": "Criminal",
+        "detective": "Detective",
+        "medium": "Médium",
+        "occultist": "Ocultista",
+        "illumination_keys": {
+            "journalist": {
+                "first": "Gather statements",
+                "second": "Hunt Down a Lead",
+                "third": "Speak Truth to Power"
+            },
+            "magician": {
+                "first": "Perform a Trick",
+                "second": "Spot a Ruse",
+                "third": "Seek Out Real Magick"
+            },
+            "exporer": {
+                "first": "Study an Artifact",
+                "second": "Discuss History",
+                "third": "Run into Danger"
+            },
+            "soldier": {
+                "first": "Use Violence of Action",
+                "second": "Protect Someone",
+                "third": "Act Tactically"
+            },
+            "doctor": {
+                "first": "Avoid a Fight",
+                "second": "Aid an Ally",
+                "third": "Comfort Someone"
+            },
+            "professor": {
+                "first": "Mentor an Ally",
+                "second": "Reference Research",
+                "third": "Make a Plan"
+            },
+            "criminal": {
+                "first": "Do Something Illegal",
+                "second": "Make a Deal",
+                "third": "Stand Up to Authority"
+            },
+            "detective": {
+                "first": "Probe a Witness",
+                "second": "Track a Target",
+                "third": "Reveal a Clue"
+            },
+            "medium": {
+                "first": "Connect with Someone",
+                "second": "Sense Phenomena",
+                "third": "Make a Scene"
+            },
+            "occultist": {
+                "first": "Consult Arcane Texts",
+                "second": "Collect Oddities",
+                "third": "Act Bizarre"
+            }
+        }
+    },
+    "CANDELA.move_increased": "+1 a",
+    "CANDELA.move_decreased": "-1 a",
+    "CANDELA.event": "Evento",
+    "CANDELA.answer": "Respuesta",
+    "CANDELA.relationship": "Relaciones",
+    "CANDELA.character_name": "Nombre del personaje",
+    "CANDELA.relationship_types": {
+        "bully": "Acosador",
+        "confidant": "Confidente",
+        "champion": "Campeón",
+        "coworker": "Compañero de trabajo",
+        "enemy": "Enemigo",
+        "family": "Familia",
+        "lover": "Amante",
+        "mentor": "Mentor",
+        "muse": "Musa",
+        "old_friend": "Viejo amigo",
+        "rival": "Rival",
+        "sibling": "Hermano",
+        "soulmate": "Alma gemela",
+        "stranger": "Extraño",
+        "ward": "Guardián"
+    },
+    "CANDELA.new.scar": "Nueva cicatriz",
+    "CANDELA.new.ability": "Nueva habilidad",
+    "CANDELA.new.relationship": "Nombre del personaje",
+    "CANDELA.new.gear": "Nuevo equipo",
+    "CANDELA.roll_move": "Tirar movimiento",
+    "CANDELA.cancel": "Cancelar",
+    "CANDELA.roll": "Tirar",
+    "CANDELA.choose_result": {
+        "title": "Elige el resultado",
+        "keep_best": "Escoger el mejor",
+        "take_gilded": "Escoger el dorado",
+        "help": "Elige entre el mejor resultado o el resultado en el dado dorado. Si escoges el dado dorado ganarás +1 impulso."
+    },
+    "CANDELA.dice": {
+        "base": "Estándar",
+        "gilded": "Dorado"
+    },
+    "CANDELA.results": {
+        "critical_success": "¡Éxito crítico!",
+        "full_success": "Éxito completo",
+        "mixed_success": "Éxito parcial",
+        "fail": "Fallo"
+    },
+    "CANDELA.circle": {
+        "name": "Nombre del círculo",
+        "label": "Círculo",
+        "chapter_house": "Casa Capitular",
+        "resources": {
+            "stitch": "Remendar",
+            "refresh": "Refrescar",
+            "train": "Entrenar",
+            "label": "Recursos"
+        },
+        "illumination": "Iluminación",
+        "available": "Disponible",
+        "no_abilities": "El círculo no tien habilidades.",
+        "no_gear": "El círculo no tiene equipo."
+    }
+}

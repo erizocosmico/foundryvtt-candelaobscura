@@ -1,6 +1,14 @@
+#chat-form textarea {
+    background: $color-bg-light url(/systems/candelaobscura/assets/paper-bg.webp) center center
+        no-repeat;
+    background-size: cover;
+}
+
 .chat-message {
     font-family: $font-default;
-    background: $color-bg-light;
+    background: $color-bg-light url(/systems/candelaobscura/assets/paper-bg.webp) center top
+        repeat-y;
+    background-size: cover;
     border-radius: 0;
     border: 1px solid black;
 

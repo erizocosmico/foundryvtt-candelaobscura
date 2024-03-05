@@ -1,4 +1,4 @@
 .window-app .window-content {
-    background-image: none;
-    background-color: $color-bg;
+    background: $color-bg url(/systems/candelaobscura/assets/paper-bg.webp) center top repeat-y;
+    background-size: cover;
 }
